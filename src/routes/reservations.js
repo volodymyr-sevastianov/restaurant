@@ -1,20 +1,19 @@
 import express from "express";
+import { validation } from "../helpers/validation";
 const router = express.Router();
 
 function createReservationsRouter({ controller }) {
-  router.get("/:reservationId", controller.getOneById);
+  router.get(
+    "/:reservationId",
+    validation,
+    controller.getController.getOneById
+  );
 
-  router.post("/", (req, res) => {
-    res.status(200).json({ message: "I am alive!" });
-  });
+  router.post("/", controller.postController.postOne);
 
-  router.put("/:reservationId", (req, res) => {
-    res.status(200).json({ message: "I am alive!" });
-  });
+  router.put("/:reservationId", controller.updateController.updateOne);
 
-  router.delete("/:reservationId", (req, res) => {
-    res.status(200).json({ message: "I am alive!" });
-  });
+  router.delete("/:reservationId", controller.deleteController.deleteOneById);
 
   return router;
 }

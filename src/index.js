@@ -3,10 +3,8 @@ import createController from "./controllers";
 import buildReservationRouter from "./routes";
 
 const controller = createController({ repository });
-console.log(controller);
-
 const reservationsRouter = buildReservationRouter({
-  controller: controller.reservationsController
+  controller: controller
 });
 
 export default reservationsRouter;

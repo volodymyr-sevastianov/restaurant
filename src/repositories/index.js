@@ -1,9 +1,9 @@
 import Knex from "knex";
-import knexKonfig from "../../knexfile";
+import knexConfig from "../../knexfile";
 import { buildRepository } from "./repository";
 
-const knex = Knex(knexKonfig);
+const knex = Knex(knexConfig);
 
 const repository = buildRepository({ knex });
 
-export default repository;
+export default Object.freeze(repository);

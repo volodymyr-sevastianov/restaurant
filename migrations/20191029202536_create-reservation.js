@@ -7,6 +7,9 @@ exports.up = function(knex) {
       .references("id")
       .inTable("table")
       .onDelete("CASCADE");
+    table.timestamp("reservation_start");
+    table.timestamp("reservation_end");
+    table.integer("guests_number");
   });
 };
 

@@ -2,7 +2,7 @@ import { createReservationsController } from "./reservations";
 
 function buildController({ repository }) {
   const reservationsController = createReservationsController({ repository });
-  return { reservationsController };
+  return Object.freeze({ reservationsController });
 }
 
 export default buildController;
