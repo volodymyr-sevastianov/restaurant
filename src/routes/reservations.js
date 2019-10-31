@@ -11,9 +11,17 @@ function createReservationsRouter({ controller }) {
 
   router.post("/", controller.postController.postOne);
 
-  router.put("/:reservationId", controller.updateController.updateOne);
+  router.put(
+    "/:reservationId",
+    validation,
+    controller.updateController.updateOne
+  );
 
-  router.delete("/:reservationId", controller.deleteController.deleteOneById);
+  router.delete(
+    "/:reservationId",
+    validation,
+    controller.deleteController.deleteOneById
+  );
 
   return router;
 }
